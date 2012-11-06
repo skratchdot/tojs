@@ -37,10 +37,11 @@ while [ "$1" != "" ]; do
 done
 
 # Must pass in a final argument that is a file
-[[ -n "$filename" ]] || {
+if [ ! -f "$filename" ]
+then
 	echo "$usage"
 	exit 2
-}
+fi
 
 #
 # Start building our output
