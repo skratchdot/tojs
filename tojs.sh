@@ -1,15 +1,22 @@
 #!/bin/bash
 #
 #     Name: tojs.sh
-#  Version: 1.0
-# Released: 2012-11-04
+#  Version: 1.1
+# Released: 2012-11-05
 #     Info: https://github.com/skratchdot/tojs/
 
 # Set some defaults
-usage="Usage:
-	$(basename $0 .sh) [-h|--help] <input_filename>
-	$(basename $0 .sh) <input_filename> > <output_filename>"
+usage="
+Usage:
+    $(basename $0 .sh) [options] <input_filename>
+    $(basename $0 .sh) [options] <input_filename> > <output_filename>
+Options:
+    -h | --help        print help information
+    -o | --no-open     don't print the document.open() statement
+    -c | --no-close    don't print document.close() statement"
 filename=""
+print_open=true
+print_close=true
 
 # We require cat to work properly
 hash cat 2>/dev/null || {
@@ -28,6 +35,10 @@ while [ "$1" != "" ]; do
 	case $1 in
 		-h | --help )		echo "$usage"
 							exit 0
+							;;
+		-c | --no-close )	print_close=false
+							;;
+		-o | --no-open )	print_open=false
 							;;
 		* )					filename=$1
 							shift
@@ -48,7 +59,10 @@ fi
 #
 
 # open document for writing
-echo "document.open();";
+if $print_open ; then
+	echo "document.open();";
+fi
+
 # wrap each line in document.write("") statements.
 cat "$filename" | \
 # escape backslashes
@@ -61,7 +75,10 @@ sed 's/[[:cntrl:]]//g' | \
 sed 's/^/document.write("/' | \
 # end each line with: \n");
 sed 's/$/\\n");/';
+
 # close the document
-echo "document.close();";
+if $print_close ; then
+	echo "document.close();";
+fi
 
 exit 0

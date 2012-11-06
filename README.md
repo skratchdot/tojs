@@ -23,6 +23,16 @@ that points to the file you created with tojs.
 
 ## Version History ##
 
-- v1.0 (Released November 4, 2012)
+### v1.1 (Released November 5, 2012)
 
-  - Initial Release
+- fixing formatting of help text
+
+- adding 2 new command line options
+
+  - [-o | --no-open] - don't print the document.open() statement
+
+  - [-c | --no-close] - don't print the document.close() statement
+
+### v1.0 (Released November 4, 2012)
+
+- Initial Release
