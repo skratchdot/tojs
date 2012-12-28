@@ -1,0 +1,29 @@
+{
+	"name" : "tojs",
+	"version" : "1.2.0",
+	"description" : "Convert between plain text, javascript strings, and document.write() statements.",
+	"preferGlobal" : true,
+	"main" : "index.js",
+	"bin" : {
+		"tojs" : "./index.js"
+	},
+	"keywords" : [
+		"cli",
+		"json",
+		"string",
+		"converter",
+		"document.write",
+		"javascript",
+		"js"
+	],
+	"repository" : {
+		"type" : "git",
+		"url" : "http://github.com/skratchdot/tojs.git"
+	},
+	"bugs" : "http://github.com/skratchdot/tojs/issues/",
+	"dependencies" : {
+		"commander" : "~1.1"
+	},
+	"author" : "skratchdot",
+	"license" : "MIT"
+}
