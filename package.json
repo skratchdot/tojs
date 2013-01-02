@@ -25,5 +25,8 @@
 		"commander" : "~1.1"
 	},
 	"author" : "skratchdot",
-	"license" : "MIT"
+	"license" : [{
+		"type" : "MIT",
+		"url" : "https://raw.github.com/skratchdot/tojs/master/LICENSE"
+	}]
 }
