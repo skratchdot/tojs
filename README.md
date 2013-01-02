@@ -6,7 +6,7 @@
 
 ## Description ##
 
-**tojs** lets you convert between plain text, javascript strings,
+**tojs** lets you convert files between plain text, javascript strings,
 and document.write() statements.
 
 It's original purpose, was to read in an .html file, and output it
@@ -27,9 +27,7 @@ check out the **Usage** and **Options** sections below.
 
 ## Usage ##
 
-    tojs [options] <input_filenames>
-    tojs [options] <input_filenames> > <output_filename>
-    echo -e "one\ntwo\nthree" | tojs [options]
+    tojs [options] <files>
 
 
 ## Options ##
@@ -44,6 +42,15 @@ check out the **Usage** and **Options** sections below.
     --no-var             var keyword will not be included in output
     --no-open            document.open() will not be included in output
     --no-close           document.close() will not be included in output
+
+
+## Examples ##
+
+    $ tojs one.txt two.txt three.txt
+    $ tojs -o "docwrite" file.html > file.html.js
+    $ tojs -i "docwrite" -o "plain" file.html.js > file.html
+    $ tojs -o "jsvar" --oneline --name "myVariable" file.txt
+    $ echo -e "one\ntwo\nthree" | tojs
 
 
 ## Version History ##
