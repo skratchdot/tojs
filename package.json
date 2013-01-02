@@ -1,6 +1,6 @@
 {
 	"name" : "tojs",
-	"version" : "1.2.0",
+	"version" : "1.2.1",
 	"description" : "Convert between plain text, javascript strings, and document.write() statements.",
 	"preferGlobal" : true,
 	"main" : "index.js",
@@ -21,6 +21,7 @@
 		"url" : "http://github.com/skratchdot/tojs.git"
 	},
 	"bugs" : "http://github.com/skratchdot/tojs/issues/",
+	"man" : "./man/tojs.1",
 	"dependencies" : {
 		"commander" : "~1.1"
 	},

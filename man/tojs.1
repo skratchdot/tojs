@@ -1,0 +1,131 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "TOJS" "1" "January 2013" "skratchdot.com" "tojs"
+.
+.SH "Description"
+\fBtojs\fR lets you convert files between plain text, javascript strings, and document\.write() statements\.
+.
+.P
+It\'s original purpose, was to read in an \.html file, and output it as a series of document\.write() statements\. This is useful when creating bookmarklets\. You can code your \.html page, then run \fBtojs\fR on it\. Now all your bookmarklet has to do is include a script tag that points to the file you created with \fBtojs\fR\.
+.
+.P
+Since version 1\.2\.0, \fBtojs\fR was converted to a node\.js project, and now supports a few different input/output formats\. To see the new options, check out the \fBUsage\fR and \fBOptions\fR sections below\.
+.
+.SH "Usage"
+.
+.nf
+
+tojs [options] <files>
+.
+.fi
+.
+.SH "Options"
+.
+.nf
+
+\-h, \-\-help           output usage information
+\-v, \-\-version        output the version number
+\-i, \-\-input [type]   The type of input [plain|js|jsvar|docwrite]
+\-o, \-\-output [type]  The type of input [plain|js|jsvar|docwrite]
+\-n, \-\-name [name]    If output is "jsvar", this is the variable name
+\-\-oneline            Force output to be on one line only
+\-\-single\-quotes      Use single\-quotes instead of double\-quotes for output
+\-\-no\-var             var keyword will not be included in output
+\-\-no\-open            document\.open() will not be included in output
+\-\-no\-close           document\.close() will not be included in output
+.
+.fi
+.
+.SH "Examples"
+.
+.nf
+
+$ tojs one\.txt two\.txt three\.txt
+$ tojs \-o "docwrite" file\.html > file\.html\.js
+$ tojs \-i "docwrite" \-o "plain" file\.html\.js > file\.html
+$ tojs \-o "jsvar" \-\-oneline \-\-name "myVariable" file\.txt
+$ echo \-e "one\entwo\enthree" | tojs
+.
+.fi
+.
+.SH "Installation"
+.
+.nf
+
+npm install \-g tojs
+.
+.fi
+.
+.SH "Links"
+Project Page \fIhttp://skratchdot\.com/projects/tojs/\fR
+.
+.P
+Github Page \fIhttps://github\.com/skratchdot/tojs/\fR
+.
+.SH "Version History"
+.
+.SS "v1\.2\.1 (Released January 2, 2012)"
+.
+.IP "\(bu" 4
+adding man page
+.
+.IP "" 0
+.
+.SS "v1\.2\.0 (Released December 27, 2012)"
+.
+.IP "\(bu" 4
+converting to a node\.js project so installation instructions have changed
+.
+.IP "\(bu" 4
+command line options have changed
+.
+.IP "\(bu" 4
+now supports the following input/output types:
+.
+.IP "\(bu" 4
+plain
+.
+.IP "\(bu" 4
+js
+.
+.IP "\(bu" 4
+jsvar
+.
+.IP "\(bu" 4
+docwrite
+.
+.IP "" 0
+
+.
+.IP "\(bu" 4
+can now pipe data from stdin or use a list of files as input (similar to the unix cat command)
+.
+.IP "" 0
+.
+.SS "v1\.1\.0 (Released November 5, 2012)"
+.
+.IP "\(bu" 4
+fixing formatting of help text
+.
+.IP "\(bu" 4
+adding 2 new command line options
+.
+.IP "\(bu" 4
+\fB\-o\fR | \fB\-\-no\-open\fR \-\- don\'t print the document\.open() statement
+.
+.IP "\(bu" 4
+\fB\-c\fR | \fB\-\-no\-close\fR \-\- don\'t print the document\.close() statement
+.
+.IP "" 0
+
+.
+.IP "" 0
+.
+.SS "v1\.0\.0 (Released November 4, 2012)"
+.
+.IP "\(bu" 4
+Initial Release
+.
+.IP "" 0
+
