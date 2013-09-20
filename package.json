@@ -3,7 +3,7 @@
 	"version" : "1.2.1",
 	"description" : "Convert between plain text, javascript strings, and document.write() statements.",
 	"preferGlobal" : true,
-	"main" : "index.js",
+	"main" : "lib/tojs",
 	"bin" : {
 		"tojs" : "./index.js"
 	},
